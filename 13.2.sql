@@ -2,4 +2,4 @@ SELECT
 	COUNT(*)
 FROM "Tickets"
 WHERE
-	"Return_time" IS NOT NULL;
+	"Return_time"::date = ?;
