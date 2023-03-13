@@ -6,7 +6,7 @@ SELECT
 	"Birthday",
 	"Genders"."Gender_name" AS "Sex",
 	"Hire_date",
-	"Salary",
+	"Wages",
 	"Professions"."Profession_name" AS "Profession",
 	"Children_count",
 	"Departments"."Department_name" AS "Department"
