@@ -18,7 +18,7 @@ FROM "Employees"
 	INNER JOIN "Departments"
 		ON "Employees"."Department_id" = "Departments"."Department_id"
 WHERE
-	"Department" = ?
+	get_age("Hire_date") = ?
 ORDER BY
 	"Last_name",
 	"First_name",
@@ -27,7 +27,5 @@ ORDER BY
 SELECT
 	COUNT(*)
 FROM "Employees"
-	INNER JOIN "Departments"
-		ON "Employees"."Department_id" = "Departments"."Department_id"
 WHERE
-	"Departments"."Department_id" = ?;
+	get_age("Hire_date") = ?;
