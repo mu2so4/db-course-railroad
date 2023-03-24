@@ -1,3 +1,3 @@
 SELECT *
 FROM "Workers_verbose"
-WHERE "Brigade_id" = 2;
+WHERE "Brigade_id" = 12;
