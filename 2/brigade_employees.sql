@@ -1,3 +1,3 @@
 SELECT *
 FROM "Workers_verbose"
-WHERE "Brigade_id" = 12;
+WHERE "Brigade_id" = 12; -- param
