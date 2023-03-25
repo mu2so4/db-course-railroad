@@ -1,31 +1,15 @@
-SELECT
-	"Employees"."Personnel_number",
-	"Last_name",
-	"First_name",
-	"Patronymic",
-	"Birthday",
-	"Genders"."Gender_name" AS "Sex",
-	"Hire_date",
-	"Wages",
-	"Professions"."Profession_name" AS "Profession",
-	"Children_count",
-	"Departments"."Department_name" AS "Department"
-FROM "Employees"
-	INNER JOIN "Genders"
-		ON "Employees"."Sex" = "Genders"."Gender_id"
-	INNER JOIN "Professions"
-		ON "Employees"."Profession_id" = "Professions"."Profession_id"
-	INNER JOIN "Departments"
-		ON "Employees"."Department_id" = "Departments"."Department_id"
+SELECT *
+FROM "Employees_view"
 WHERE
 	get_age("Birthday") = ?
 ORDER BY
 	"Last_name",
 	"First_name",
-	"Patronymic";
+	"Patronymic"
+
 
 SELECT
 	COUNT(*)
-FROM "Employees"
+FROM "Employees_view"
 WHERE
 	get_age("Birthday") = ?;
