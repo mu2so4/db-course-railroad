@@ -6,7 +6,9 @@ SELECT
 	"Arrival_stops"."Full_name" AS "Arrival_station",
 	"Start_date" + "Departure_stops"."Departure_time" AS "Departure_time",
 	"Start_date" + "Arrival_stops"."Arrival_time" AS "Arrival_time",
-	"Pure_cost" * "Cost_coefficient" AS "Cost"
+	"Pure_cost" * "Cost_coefficient" AS "Cost",
+	"Luggage_count",
+	"Sum_luggage_weight"
 FROM "Tickets"
 	INNER JOIN "Trips" USING("Trip_id")
 	INNER JOIN "Station_stops_verbose" "Departure_stops"
@@ -17,7 +19,7 @@ FROM "Tickets"
 		"Tickets"."Arrival_station" = "Arrival_stops"."Station_id"
 WHERE
 	"Return_time" IS NULL AND
-	("Start_date" + "Departure_stops"."Departure_time")::date = '2023-01-16' -- param
+	"Luggage_count" <> 0 -- param
 ORDER BY
 	"Last_name",
 	"First_name"
