@@ -10,10 +10,10 @@ SELECT
 	"Brigade_name"
 FROM "Workers"
 	INNER JOIN "Brigades" USING("Brigade_id")
-	INNER JOIN "Our_locomotives"
-		ON "Workers"."Brigade_id" IN ("Our_locomotives"."Locomotive_brigade", "Our_locomotives"."Repair_brigade")
+	INNER JOIN "Locomotive_workers"
+		ON "Workers"."Brigade_id" IN ("Locomotive_workers"."Locomotive_brigade", "Locomotive_workers"."Repair_brigade")
 WHERE
-	"Locomotive_number" = 5 -- param
+	"Locomotive" = 5 -- param
 ORDER BY
 	"Last_name",
 	"First_name",
