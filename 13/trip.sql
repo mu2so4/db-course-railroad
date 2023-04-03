@@ -3,4 +3,4 @@ SELECT
 FROM "Tickets"
 WHERE
 	"Return_time" IS NOT NULL AND
-	"Passage_id" = ?;
+	"Trip_id" = 56;
