@@ -6,7 +6,8 @@ SELECT
 	"Arrival_stops"."Full_name" AS "Arrival_station",
 	"Start_date" + "Departure_stops"."Departure_time" AS "Departure_time",
 	"Start_date" + "Arrival_stops"."Arrival_time" AS "Arrival_time",
-	"Pure_cost" * "Cost_coefficient" AS "Cost",
+	"Birthday",
+	get_age("Birthday") AS "Age"
 FROM "Tickets"
 	INNER JOIN "Trips" USING("Trip_id")
 	INNER JOIN "Station_stops_verbose" "Departure_stops"
@@ -17,7 +18,7 @@ FROM "Tickets"
 		"Tickets"."Arrival_station" = "Arrival_stops"."Station_id"
 WHERE
 	"Return_time" IS NULL AND
-	"Sex" = 'Ж' -- param
+	get_age("Birthday") BETWEEN 20 AND 30 -- params
 ORDER BY
 	"Last_name",
 	"First_name"
