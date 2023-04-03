@@ -14,8 +14,8 @@ FROM "Tickets"
 		ON "Trips"."Route_id" = "Arrival_stops"."Route_id" AND
 		"Tickets"."Arrival_station" = "Arrival_stops"."Station_id"
 WHERE
-	"Arrival_stops"."Arrival_time" - "Departure_stops"."Departure_time" BETWEEN
-		'18:00' AND '40:00' --params
+	"Arrival_stops"."Arrival_time" - "Departure_stops"."Departure_time" BETWEEN '18:00' AND '40:00' AND --params
+	"Return_time" IS NULL
 ORDER BY
 	"Last_name",
 	"First_name"

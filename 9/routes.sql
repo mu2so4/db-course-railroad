@@ -16,7 +16,8 @@ FROM "Tickets"
 		ON "Trips"."Route_id" = "Arrival_stops"."Route_id" AND
 		"Tickets"."Arrival_station" = "Arrival_stops"."Station_id"
 WHERE
-	"Trips"."Route_id" IN (123, 127) --param
+	"Trips"."Route_id" IN (123, 127) AND --param
+	"Return_time" IS NULL
 ORDER BY
 	"Last_name",
 	"First_name"
