@@ -7,5 +7,4 @@ SELECT
 	"Arrival_time"
 FROM "Timetable"
 WHERE
-	NOT "Is_cancelled" AND
-	'2023-01-17 16:20:38' BETWEEN "Departure_time" AND "Arrival_time" -- param
+	NOT "Is_cancelled"

@@ -14,6 +14,8 @@ FROM "Trips"
 		"Departure_stations"."Departure_time" < "Arrival_stations"."Arrival_time"
 WHERE
 	NOT "Is_cancelled" AND
-	"Arrival_stations"."Ticket_cost" - "Departure_stations"."Ticket_cost" BETWEEN 900::money AND 1100::money --params
+	"Arrival_stations"."Ticket_cost" - "Departure_stations"."Ticket_cost" BETWEEN 900::money AND 1100::money AND --params
+	("Start_date" + "Departure_stations"."Departure_time")::date = '2023-01-17' AND --param
+	"Trips"."Route_id" = 128 --param
 ORDER BY
 	"Start_date" + "Departure_stations"."Departure_time"
